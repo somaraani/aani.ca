@@ -340,6 +340,18 @@
     font: 26px Arial, sans-serif;
 }
 
+.green{
+    border-color:#7bffbe;
+}
+
+.blue{
+    border-color:#507f93;
+}
+
+.orange{
+    border-color:#ff9c00;
+}
+
 #portfolio{
     margin-top: -12px;
     background-color: #507f93;
