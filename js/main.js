@@ -104,7 +104,7 @@ $(window).on('load', function() {
     setTimeout(function() {$("#headerImg").addClass("imgSlide");  $("#headerImg").removeClass("imgHidden");}, 2500);
     setTimeout(function() {$("#great").addClass("bodySlide");}, 1600);
     
-    setTimeout(function(){loaded();}, 2000);
+    //setTimeout(function(){loaded();}, 2000);
     
 });
 
