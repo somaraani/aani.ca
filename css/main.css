@@ -197,9 +197,38 @@
   }
 }
 
+.topbar{
+    background-color: #7bffbe;
+    height: 65px;
+    overflow: hidden;
+    z-index: 2000;
+}
+
+.topbar p{
+    font-size: 2.1vw;
+    display: inline-block;
+    margin-right: 14%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.topbar p:first-of-type{
+    margin-left: 3%;
+}
+
+.topbar p:last-of-type{
+    margin-right: 0;
+}
+
 .about{
     background-color: #507f93;
-    border-top: 5px solid #7bffbe;
 }
 
 .about h1{

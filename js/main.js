@@ -141,6 +141,19 @@ function updateHeight(){
    }
 }
 
+var navbar = $('#navbar');
+var offset = navbar.offset().top;
+window.onscroll = function(){
+    if(window.pageYOffset >= offset){
+        navbar.addClass('sticky');
+        $('.about').css('padding-top','65px');
+    }
+    else{
+        navbar.removeClass('sticky');
+        $('.about').css('padding-top','0px');
+    }
+};
+
 
 //   $(document).ready(function () {
       //     
