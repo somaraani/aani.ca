@@ -248,6 +248,8 @@
 
    </div>
    <div id=dimmer onclick="closeNav()"> </div>
+       
+    <div id="webbody">
    <div id="main">
       <div class="header" id="bg">
          <div class="container-fluid">
@@ -260,37 +262,64 @@
             <h2 > Software Engineering Student  </h2>
          </div>
       </div>
-      <div id="navbar" class="topbar">
-          <p>Home</p>
-          <p>About</p>
-          <p>Skills</p>
-          <p>Porfolio</p>
-          <p>Contact</p>
-      </div>
+
+       <div id = "navbar">
+      <ul class="nav nav-justified">
+        <li><a id="aboutlink">About</a></li>
+       <li><a id="experiencelink">Experience</a></li>
+        <li><a id="skillslink">Skills</a></li>
+        <li><a id="portfoliolink">Portfolio</a></li>
+        <li><a id = "contactlink">Contact</a></li>
+      </ul>
+           <div id="navprog">
+           
+           </div>
+    </div>
+       
       <div class="about">
          <div class="container" id="great" >
             <div class="row">
                <h1 id="about"> ABOUT  {</h1>
                <h1 style="float:right; color: #89cbe7;"> //A little about me </h1>
             </div>
-            <p> My name is Somar Aani. I am currently a student at McMaster University studying Software Engineering with Embedded Systems. <span style="color:orange;">*</span></p>
-            <p>I’ve been passionate about technology and computers for as long as I remember.  As a kid I would take apart toy cars and other components, just to find out how they worked. After playing video games for many years, this curiosity of knowing how things worked fueled my passion for programming, and I started teaching myself at 14.</p>
-             
-            <p> This passion for technology is what drives me to learn. I am always looking for new things to study, and finding ways to improve my skillset. Whether it is personal projects or work experience, I value all of these experiences as they define who I am. </p>
+            <p> Hi! My name is Somar. I am currently a student at McMaster University studying Software Engineering. </p>
+<p>I’ve always had a passion for software and computing and am always looking for new ways to challenge myself and grow as a developer. </p>
+<p>I have a wide array of professional, and personal projects, and continue to seek out new, exciting problems. </p>
+
             <h1 style="margin-top: -30px;"> } </h1>
          </div>
       </div>
-      <div class = "embd">
+      <div id="experience" class = "embd">
          <div class = "container">
-            <h1>* What is Software Engineering with <strong> Embedded Systems?</strong></h1>
-            <p>The embedded systems program combines the core Software program at McMaster, but adds a variety of Electronics and Mechatronics courses. This enables student to be more effective at writing code to be used in embedded systems and other electronics.</p>
+            <h1>Professional Experience</h1>
+             <h2>Checkout51 - Mobile Developer</h2>
+            <p>I spent the summer of 2018 as a mobile development intern at Checkout51. Checkout51 is a platform that allows consumers to redeem coupons and get cashback by uploading a photo of their receipt.  </p>
+<p>Being at this high pace environment was great experience for me as I got hands on experience seeing how a feature moves from concept, all the way to a finalized product within a release cycle, and how front-end, back-end, and business work together to meet deadlines. 
+ </p>       
+             <p>During my time at Checkout51, I did the following:</p>
+             <ul>
+                 <li>Developed a standalone automation utility and custom testing framework from the ground-up, that is cross-platform for both iOS and Android, with an easy to use GUI that allows dynamic creation of test suites. The tool was implemented into the QA process, with plans to expand test range using the framework. </li>
+                 <li>Refactored a major component for the Checkout51 iOS app from Objective-C to Swift, as well as upgrading the architecture with a focus on improving maintainability and performance. This included analyzing the current app structure and proposing a more efficient implementation, including writing documentation and unit tests. </li>
+                 <li>Worked with git to keep track of progress, and created branches to work on different Jira tickets, moving the ticket through all phases of the development life cycle. </li>
+                 <li>Participated in team retrospective’s to reflect on the current process and propose improvements to improve efficiency and communication between teams.</li>
+             </ul>
+             
+              <h2>Ministry of Education - Application Programmer Analyst</h2>
+            <p>During the summer of 2017, I completed an internship at the Ministry of Education that exposed me to working on very large-scale projects with very large teams. I was able to see how different stakeholders interact with each other, and how important following the development life cycle is for such projects. 
+ </p>       
+             <p>During my internship, I worked on the following:</p>
+             <ul>
+                 <li>Developed internal testing utilities using C# and .NET for parsing and validating huge PDF reports. These were implemented into the QA process, largely improving efficiency from the old manual process.</li>
+                 <li>Referenced business and technical documentation to create full-coverage tests for both functional and GUI testing, including both new features and regression tests.</li>
+                 <li>Developed libraries to improve automation tasks, including reporting libraries and maintaining a data driven testing framework.</li>
+             </ul>
          </div>
       </div>
       <div style="display:flex; background-color:#3b3b3b;">
          <div class="rectangle1"></div>
          <div class="rectangle2"></div>
       </div>
-      <div class="skills">
+      <div id="skills" class="skills">
          <div  class="container">
             <h1 id="skillsHeader"> What can I do?</h1>
             <div id="circle">
@@ -382,18 +411,6 @@
                      <h3 style="color:#ff9c00;"> BEGINNER </h3> 
                   </div>
                </div>
-            </div>
-         </div>
-      </div>
-      <div class="hardware">
-         <div class="container" id="hardware">
-             <div class="row">
-             <div class="col-lg-2 col-centered">
-                <img src="img/hardware.png" width=450px;>
-             </div>
-             <div class="col-lg-10 col-centered">
-                <p> In addition to software, I also have a fundamental understanding of computer hardware. I’ve assembled over a dozen computers, and am very experienced with repairing and diagnosing electronics, as well as setting-up and maintaining networks and workspaces.</p>
-             </div> 
             </div>
          </div>
       </div>
@@ -510,7 +527,7 @@
          </div>
       </section>
       <div class="space"></div>
-      <div class="contact">
+      <div id ="contact" class="contact">
          <a target="_blank" href = "http://www.aani.ca/rcs/resume.pdf"><img src="img/resume2.png" width="400" align="right" id="resume"></a>
          <div class="container" id="border">
             <h1>Contact</h1>
@@ -528,6 +545,7 @@
          <p>Website designed and implemented by Somar Aani</p>
       </div>
    </div>
+       </div>
    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
    <script type="text/javascript" src="js/viewportchecker.js"></script>
    <script type="text/javascript" src="js/main.js"></script>

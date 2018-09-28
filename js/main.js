@@ -97,7 +97,7 @@ function closeNav() {
 $(window).ready(updateHeight);
 $(window).resize(updateHeight);
 
-$(window).on('load', function() {
+$(window).load(function() {
     scrollToTop();
     $("#cover").delay(2000).slideUp(1500);
     setTimeout(function() {typeName(0)}, 3500);
@@ -146,47 +146,45 @@ var offset = navbar.offset().top;
 window.onscroll = function(){
     if(window.pageYOffset >= offset){
         navbar.addClass('sticky');
-        $('.about').css('padding-top','65px');
+        $('.about').css('padding-top','45px');
     }
     else{
         navbar.removeClass('sticky');
         $('.about').css('padding-top','0px');
     }
+
+    var width = 120 * $(window).scrollTop() / $(document).height()
+    $('div#navprog').width(width + '%');
 };
 
+$("#aboutlink").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#about").offset().top - 20
+    }, 600);
+});
 
-//   $(document).ready(function () {
-      //     
-      //      var browserPrefix = "",
-      //        usrAg = navigator.userAgent;
-      //    if(usrAg.indexOf("Chrome") > -1 || usrAg.indexOf("Safari") > -1) {
-      //        browserPrefix = "-webkit-";
-      //    } else if (usrAg.indexOf("Opera") > -1) {
-      //        browserPrefix = "-o";
-      //    } else if (usrAg.indexOf("Firefox") > -1) {
-      //        browserPrefix = "-moz-";
-      //    } else if (usrAg.indexOf("MSIE") > -1) {
-      //        browserPrefix = "-ms-";
-      //    }
-      //
-      //    var wait = false;
-      //    $('body').mousemove(function (event) {
-      //        if(!wait){
-      //        var cx = Math.ceil(window.innerWidth / 2.0),
-      //            cy = Math.ceil(window.innerHeight / 2.0),
-      //            dx = event.pageX - cx,
-      //            dy = event.pageY - cy,
-      //            tiltx = (dy / cy),
-      //            tilty = - (dx / cx),
-      //            radius = Math.sqrt(Math.pow(tiltx, 2) + Math.pow(tilty, 2)),
-      //            degree = (radius * 15);
-      //        
-      //
-      //        $('#circle').css(browserPrefix + 'transform', 'rotate3d(' + tiltx + ', ' + tilty + ', 0, ' + degree + 'deg)');
-      //
-      //        }
-      //        
-      //        
-      //    });
-      //});   
+$("#experiencelink").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#experience").offset().top - 20
+    }, 600);
+});
+
+$("#skillslink").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#skills").offset().top - 20
+    }, 600);
+});
+
+
+$("#portfoliolink").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#portfolio").offset().top - 20
+    }, 600);
+});
+
+$("#contactlink").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#contact").offset().top - 20
+    }, 600);
+});
 
