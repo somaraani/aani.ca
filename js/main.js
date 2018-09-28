@@ -76,10 +76,14 @@ function openNav(a) {
     if($(window).width() < 650){
         width = $(window).width();
     }
-    
-    document.getElementById(a).style.width = width + "px";
-    document.getElementById("main").style.marginRight = width +"px";
-    document.getElementById("dimmer").style.display='block';
+
+    $('#sidenav').html("");
+
+    $('#sidenav').css('width', width + "px");
+    $('#main').css('margin-right',width + "px");
+    $('#dimmer').css('display', 'block');
+
+    $('#sidenav').load(a + ".html");
 }
 
 function closeNav() {
@@ -107,23 +111,6 @@ $(window).load(function() {
     //setTimeout(function(){loaded();}, 2000);
     
 });
-
-/*function loaded(){
-    $("#skillsHeader").addClass("notVisible").viewportChecker({
-        classToAdd: 'visible animated fadeIn',
-        offset: 150
-    }); 
-    
-     $(".skills h2").addClass("notVisible").viewportChecker({
-        classToAdd: 'visible animated fadeIn',
-        offset: 100
-    }); 
-    
-    $("#circle").addClass("notVisible").viewportChecker({
-        classToAdd: 'visible animated fadeIn',
-        offset: 150
-    });  skillsIndicators
-}*/
 
 function scrollToTop(){
    $('html').animate({scrollTop:0}, 'fast');
@@ -159,7 +146,7 @@ window.onscroll = function(){
 
 $("#aboutlink").click(function() {
     $('html, body').animate({
-        scrollTop: $("#about").offset().top - 20
+        scrollTop: $("#about").offset().top - 30
     }, 600);
 });
 
@@ -178,7 +165,7 @@ $("#skillslink").click(function() {
 
 $("#portfoliolink").click(function() {
     $('html, body').animate({
-        scrollTop: $("#portfolio").offset().top - 20
+        scrollTop: $("#portfolio").offset().top - 30
     }, 600);
 });
 
