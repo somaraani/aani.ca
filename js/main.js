@@ -97,6 +97,8 @@ function closeNav() {
     document.getElementById("dimmer").style.display='none';
 }
 
+var navbar = $('#navbar');
+var offset = 400;
  
 $(window).ready(updateHeight);
 $(window).resize(updateHeight);
@@ -128,16 +130,12 @@ function updateHeight(){
    }
 }
 
-var navbar = $('#navbar');
-var offset = navbar.offset().top;
-window.onscroll = function(){
-    if(window.pageYOffset >= offset){
+window.onscroll = function(){    
+    if(window.pageYOffset > offset){
         navbar.addClass('sticky');
-        $('.about').css('padding-top','45px');
     }
     else{
         navbar.removeClass('sticky');
-        $('.about').css('padding-top','0px');
     }
 
     var width = 120 * $(window).scrollTop() / $(document).height()

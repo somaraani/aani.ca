@@ -229,13 +229,11 @@ ul.nav p:hover {
   position: fixed;
   top: 0px;
   width: 100%;
-  transition: 0.5s;
-    z-index: 9998!important;
+  z-index: 9998!important;
 }
 
-.sticky:hover{
-    top:0;
-    transition: 0.5s;
+.sticky + .about {
+    padding-top: 55px;
 }
 
 .about{
@@ -459,6 +457,7 @@ ul.nav p:hover {
     margin-top: 30px;
     padding: 5px 20px 10px 20px;
     cursor: pointer;
+    height: 100%;
 }
 
 #portfolio .item:hover{
