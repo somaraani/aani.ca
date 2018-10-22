@@ -197,38 +197,58 @@
   }
 }
 
-.topbar{
+
+.nav{
     background-color: #7bffbe;
-    height: 65px;
     overflow: hidden;
-    z-index: 2000;
+    margin-left: 0;
+    text-align: center;
+    font-size: 16pt;
+    color: white;
+    z-index: 9998;
+    padding-bottom: 5px;
 }
 
-.topbar p{
-    font-size: 2.1vw;
-    display: inline-block;
-    margin-right: 14%;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+#navprog {
+    min-height: 5px;
+    background-color: #29b5a2;
+    width: 0%;
+    margin-top: -5px;
+}
+
+ul.nav a{
+    color: #507f93;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    #navbar {
+        display: none;
+    }
+    
+    
+}
+
+ul.nav p:hover { 
+    color: white !important;
+    background-color: #7bffbe !important;
 }
 
 .sticky {
   position: fixed;
-  top: 0;
+  top: 0px;
   width: 100%;
+  z-index: 9998!important;
 }
 
-.topbar p:first-of-type{
-    margin-left: 3%;
-}
-
-.topbar p:last-of-type{
-    margin-right: 0;
+.sticky + .about {
+    padding-top: 55px;
 }
 
 .about{
     background-color: #507f93;
+    padding-bottom: 20px;
+    padding-top 20px;
 }
 
 .about h1{
@@ -241,9 +261,10 @@
 }
 
 .about p{
-    font-size: 18pt; 
+    font-size: 16pt; 
     color: white;
     margin-left: 2%;
+    margin-bottom: 25px;
 }
 
 .embd{
@@ -254,17 +275,25 @@
 }
 
 .embd h1{
-    padding-top: 50px;
-    padding-bottom: 30px;
-    font-size: 30px;
-    color: orange;
+    margin-top: 50px;
+    font-size: 40px;
+    color: white;
 }
 
-.embd p{
-    font-size: 18pt;
+.embd h2 {
+    font-size: 28px;
+    color: orange;
+    font-weight: 600;
+    margin-bottom: 15px;
+    margin-top: 55px;
+}
+
+.embd p, li{
+    font-size: 16pt;
     color: white;
     margin-bottom: 20px;
 }
+
 
 .rectangle1{
     width: 300px;
@@ -302,6 +331,7 @@
 .skills{
     background-color: #3b3b3b;
     min-height: 300px;
+    padding-bottom: 100px;
 }
 
 .skills h1{
@@ -436,6 +466,7 @@
     margin-top: 30px;
     padding: 5px 20px 10px 20px;
     cursor: pointer;
+    height: 100%;
 }
 
 #portfolio .item:hover{

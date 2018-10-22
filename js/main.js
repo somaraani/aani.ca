@@ -1,129 +1,84 @@
 //Typing ----------------------------------------------------------------------------
 
-var string1 = "Somar Ani";
-var string2 = "Somar Aani"
-var timer;
+var string1 = "Somar Ani--ani";
 
-function typeName(i){
+function type(i, str){
     
-    if(i == string1.length + 1){
-        eraseName(0);
-    }
-    else{
-        
-        if(i == 6){
-            document.getElementById("typingText").innerHTML = string1.substring(0,i) + '&nbsp;' + '<span id="span" class="blink" aria-hidden="true"></span>';
-        }
-        
-        else if(i <= string1.length){
-            document.getElementById("typingText").innerHTML = string1.substring(0,i) + '<span  id="span" class="blink" aria-hidden="true"></span>' ;
-        }
-
-        setTimeout(function() {
-            typeName(i+1);
-        }, 300);
-    }
-}
-
-function eraseName(i){
-    
-    if(i == 3){
-        reWriteName(7);
-    }
-    else{
-        document.getElementById("typingText").innerHTML = string1.substring(0,string1.length - i) + '<span id="span" class="blink" aria-hidden="true"></span>' ;
-        
-        i++;
-    
-        setTimeout(function() {
-            eraseName(i);
-            }, 300);
-    }
-}
-
-function reWriteName(i){
-    
-    if(i == 69){
-      document.getElementById("span").className = "noblink";
-    
-      clearTimeout(timer);
-    }
-    else{
-    
-    if(i == string2.length+1){
-        i = 69;
-        
-        setTimeout(function() {
-            reWriteName(i);
+    //removes blink and exits function at end of string
+    if(i == str.length){
+        setTimeout(function() { 
+              $("#span").addClass('noblink');
         }, 2600);
+        return;
     }
-    else{
-    document.getElementById("typingText").innerHTML = string2.substring(0,i) + '<span id="span" class="blink" aria-hidden="true"></span>' ;
     
-    i++; 
+    //deletes last character at '-'
+    if (str.charAt(i) == '-') {
+        setTimeout(function() { type(i - 2, str.substring(0,i-1) + str.substring(i + 1)); }, 175);
+        return;
+    }
     
-    setTimeout(function() {
-            reWriteName(i);
-        }, 300);
+    var space = "";
+    if(str.charAt(i) == ' ') {
+        space = '&nbsp;';
     }
-    }
- }
+    
+    $('#typingText').html(str.substring(0,i + 1) + space + '<span id="span" class="blink" aria-hidden="true"></span>');
+    setTimeout(function() { type(i+1, str); }, 250);
+}
 
-// Nav ---------------------------------------------------------------------------------
+// Side nav  ---------------------------------------------------------------------------------
 
 function openNav(a) {
     var width = 650;
     if($(window).width() < 650){
         width = $(window).width();
     }
+
+    $('#sidenav').html("");
     
-    document.getElementById(a).style.width = width + "px";
-    document.getElementById("main").style.marginRight = width +"px";
-    document.getElementById("dimmer").style.display='block';
+    $('#sidenav').css('width', width + "px");
+    $('#main').css('margin-right',width + "px");
+    $('#dimmer').css('display', 'block');
+    
+    $('#sidenav').load(a + ".html");
 }
 
 function closeNav() {
-    
-    var x = document.getElementsByClassName("sidenav");
-    var i;
-    for(i = 0; i < x.length; i++)
-        x[i].style.width = "0";
-    
-    document.getElementById("main").style.marginRight = "0";
-    document.getElementById("dimmer").style.display='none';
+    $('#sidenav').css('width', 0 + "px");
+    $("#main").css('margin-right', 0);
+    $('#dimmer').css('display', 'none');
 }
 
+// Top nav  ---------------------------------------------------------------------------------
+
+var navbar = $('#navbar');
+var offset = 400;
+
+window.onscroll = function(){    
+    if(window.pageYOffset > offset){
+        navbar.addClass('sticky');
+    }
+    else{
+        navbar.removeClass('sticky');
+    }
+
+    var scrollpct = Math.floor($(window).scrollTop()/($(document).height() - $(window).height()) * 100) // gets percentage scrolled (ie: 80 NaN if tracklength == 0)
+    $('div#navprog').width(scrollpct + '%');
+};
+
+// Window load  ---------------------------------------------------------------------------------
  
 $(window).ready(updateHeight);
 $(window).resize(updateHeight);
 
-$(window).on('load', function() {
+$(window).load(function() {
     scrollToTop();
     $("#cover").delay(2000).slideUp(1500);
-    setTimeout(function() {typeName(0)}, 3500);
+    setTimeout(function() {type(0, string1)}, 3500);
     setTimeout(function() {$("#headerImg").addClass("imgSlide");  $("#headerImg").removeClass("imgHidden");}, 2500);
-    setTimeout(function() {$("#great").addClass("bodySlide");}, 1600);
-    
-    //setTimeout(function(){loaded();}, 2000);
-    
+    setTimeout(function() {$("#great").addClass("bodySlide");}, 1600);    
 });
-
-/*function loaded(){
-    $("#skillsHeader").addClass("notVisible").viewportChecker({
-        classToAdd: 'visible animated fadeIn',
-        offset: 150
-    }); 
-    
-     $(".skills h2").addClass("notVisible").viewportChecker({
-        classToAdd: 'visible animated fadeIn',
-        offset: 100
-    }); 
-    
-    $("#circle").addClass("notVisible").viewportChecker({
-        classToAdd: 'visible animated fadeIn',
-        offset: 150
-    });  skillsIndicators
-}*/
 
 function scrollToTop(){
    $('html').animate({scrollTop:0}, 'fast');
@@ -141,52 +96,34 @@ function updateHeight(){
    }
 }
 
-var navbar = $('#navbar');
-var offset = navbar.offset().top;
-window.onscroll = function(){
-    if(window.pageYOffset >= offset){
-        navbar.addClass('sticky');
-        $('.about').css('padding-top','65px');
-    }
-    else{
-        navbar.removeClass('sticky');
-        $('.about').css('padding-top','0px');
-    }
-};
+$("#aboutlink").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#about").offset().top - 30
+    }, 600);
+});
+
+$("#experiencelink").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#experience").offset().top - 20
+    }, 600);
+});
+
+$("#skillslink").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#skills").offset().top - 20
+    }, 600);
+});
 
 
-//   $(document).ready(function () {
-      //     
-      //      var browserPrefix = "",
-      //        usrAg = navigator.userAgent;
-      //    if(usrAg.indexOf("Chrome") > -1 || usrAg.indexOf("Safari") > -1) {
-      //        browserPrefix = "-webkit-";
-      //    } else if (usrAg.indexOf("Opera") > -1) {
-      //        browserPrefix = "-o";
-      //    } else if (usrAg.indexOf("Firefox") > -1) {
-      //        browserPrefix = "-moz-";
-      //    } else if (usrAg.indexOf("MSIE") > -1) {
-      //        browserPrefix = "-ms-";
-      //    }
-      //
-      //    var wait = false;
-      //    $('body').mousemove(function (event) {
-      //        if(!wait){
-      //        var cx = Math.ceil(window.innerWidth / 2.0),
-      //            cy = Math.ceil(window.innerHeight / 2.0),
-      //            dx = event.pageX - cx,
-      //            dy = event.pageY - cy,
-      //            tiltx = (dy / cy),
-      //            tilty = - (dx / cx),
-      //            radius = Math.sqrt(Math.pow(tiltx, 2) + Math.pow(tilty, 2)),
-      //            degree = (radius * 15);
-      //        
-      //
-      //        $('#circle').css(browserPrefix + 'transform', 'rotate3d(' + tiltx + ', ' + tilty + ', 0, ' + degree + 'deg)');
-      //
-      //        }
-      //        
-      //        
-      //    });
-      //});   
+$("#portfoliolink").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#portfolio").offset().top - 30
+    }, 600);
+});
+
+$("#contactlink").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#contact").offset().top - 20
+    }, 600);
+});
 
